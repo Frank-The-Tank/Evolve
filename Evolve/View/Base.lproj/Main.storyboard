@@ -10,28 +10,67 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Creature View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Evolve" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CreatureViewController" customModule="Evolve" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TEST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwL-cQ-bsg">
-                                <rect key="frame" x="166" y="0.0" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3R-Ob-3cJ" userLabel="CreatureView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="567"/>
+                                <color key="backgroundColor" red="0.60116470960648205" green="0.64069125791383419" blue="0.66799789667129517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mGr-RK-OGc" userLabel="CreatureContainer">
+                                <rect key="frame" x="43" y="100" width="288" height="407"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2z-fa-tAJ" userLabel="NavigationView">
+                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqg-Ob-y6w">
+                                        <rect key="frame" x="165" y="25" width="45" height="30"/>
+                                        <state key="normal" title="Evolve"/>
+                                        <connections>
+                                            <action selector="evolveBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qEI-pi-zjk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="nqg-Ob-y6w" firstAttribute="centerY" secondItem="y2z-fa-tAJ" secondAttribute="centerY" id="HKX-dn-QIe"/>
+                                    <constraint firstItem="nqg-Ob-y6w" firstAttribute="centerX" secondItem="y2z-fa-tAJ" secondAttribute="centerX" id="so3-bv-hQj"/>
+                                    <constraint firstAttribute="height" constant="80" id="wm3-4I-8jt"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="y2z-fa-tAJ" firstAttribute="top" secondItem="mGr-RK-OGc" secondAttribute="bottom" constant="80" id="DKP-dG-84j"/>
+                            <constraint firstItem="y2z-fa-tAJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EBM-5H-WQ8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="P3R-Ob-3cJ" secondAttribute="bottom" constant="80" id="JKa-g9-Lyv"/>
+                            <constraint firstItem="y2z-fa-tAJ" firstAttribute="top" secondItem="P3R-Ob-3cJ" secondAttribute="bottom" id="WMg-0L-XSx"/>
+                            <constraint firstItem="mGr-RK-OGc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aaK-3B-RJ3"/>
+                            <constraint firstItem="P3R-Ob-3cJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ejP-Z6-eeq"/>
+                            <constraint firstItem="mGr-RK-OGc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="fIG-wD-fkz"/>
+                            <constraint firstItem="P3R-Ob-3cJ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="irx-5G-2MY"/>
+                            <constraint firstItem="y2z-fa-tAJ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="lnf-jT-DGR"/>
+                            <constraint firstItem="mGr-RK-OGc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="qtH-AM-F9k"/>
+                            <constraint firstItem="P3R-Ob-3cJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="soM-S5-h59"/>
+                            <constraint firstItem="y2z-fa-tAJ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="yVb-Ti-AfN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="creatureContainer" destination="mGr-RK-OGc" id="qjl-z3-05j"/>
+                        <outlet property="creatureView" destination="P3R-Ob-3cJ" id="Fls-Qv-Px8"/>
+                        <outlet property="navigationView" destination="y2z-fa-tAJ" id="MaF-tF-l3s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>
