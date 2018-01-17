@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		86118BF5200DD54B005042FC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86118BF4200DD54B005042FC /* Extensions.swift */; };
 		862EF809200D8ED9003A702F /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EF808200D8ED9003A702F /* Creature.swift */; };
+		86B67CAC200F048900E449CE /* CreatureParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B67CAB200F048900E449CE /* CreatureParts.swift */; };
 		86CE45F1200D8163007DDF3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE45F0200D8163007DDF3C /* AppDelegate.swift */; };
 		86CE45F3200D8163007DDF3C /* CreatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE45F2200D8163007DDF3C /* CreatureView.swift */; };
 		86CE45F6200D8163007DDF3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86CE45F4200D8163007DDF3C /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		86118BF4200DD54B005042FC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		862EF808200D8ED9003A702F /* Creature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
+		86B67CAB200F048900E449CE /* CreatureParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureParts.swift; sourceTree = "<group>"; };
 		86CE45ED200D8163007DDF3C /* Evolve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Evolve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CE45F0200D8163007DDF3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86CE45F2200D8163007DDF3C /* CreatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureView.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				862EF808200D8ED9003A702F /* Creature.swift */,
+				86B67CAB200F048900E449CE /* CreatureParts.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86CE45F3200D8163007DDF3C /* CreatureView.swift in Sources */,
+				86B67CAC200F048900E449CE /* CreatureParts.swift in Sources */,
 				86CE45F1200D8163007DDF3C /* AppDelegate.swift in Sources */,
 				862EF809200D8ED9003A702F /* Creature.swift in Sources */,
 				86118BF5200DD54B005042FC /* Extensions.swift in Sources */,

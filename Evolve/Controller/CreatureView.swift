@@ -26,19 +26,18 @@ class CreatureViewController: UIViewController {
     var rightLeg = CAShapeLayer()
     
     @IBAction func evolveBtnPressed(_ sender: UIButton) {
-        
+        body.fillColor = .random()
+        head.fillColor = .random()
+        leftArm.fillColor = .random()
+        rightArm.fillColor = .random()
+        leftLeg.fillColor = .random()
+        rightLeg.fillColor = .random()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let creature = createBaseCreature()
-        self.view.layer.addSublayer(creature.body)
-        self.view.layer.addSublayer(creature.head)
-        self.view.layer.addSublayer(creature.leftArm)
-        self.view.layer.addSublayer(creature.rightArm)
-        self.view.layer.addSublayer(creature.leftLeg)
-        self.view.layer.addSublayer(creature.rightLeg)
-        creature.consoleTest()
+        generateCreature(creature: creature)
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,28 +45,40 @@ class CreatureViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Puts the creature parts on the screen
+    func generateCreature(creature: Creature) {
+        self.view.layer.addSublayer(creature.body.shape)
+        self.view.layer.addSublayer(creature.head.shape)
+        self.view.layer.addSublayer(creature.leftArm.shape)
+        self.view.layer.addSublayer(creature.rightArm.shape)
+        self.view.layer.addSublayer(creature.leftLeg.shape)
+        self.view.layer.addSublayer(creature.rightLeg.shape)
+    }
+    
     // Creates base creature
     func createBaseCreature() -> Creature {
         
         // Body
-        let bodyPath = UIBezierPath()
-        bodyPath.move(to: CGPoint(x: creatureContainer.frame.minX, y: creatureContainer.frame.minY))
-        bodyPath.addLine(to: CGPoint(x: 250, y: 150))
-        bodyPath.addLine(to: CGPoint(x: 250, y: 250))
-        bodyPath.addLine(to: CGPoint(x: 150, y: 250))
+        let bodyPath = UIBezierPath(arcCenter: CGPoint(x: creatureContainer.frame.maxX/2,y: creatureContainer.frame.maxY/2),
+                                    radius: CGFloat(80),
+                                    startAngle: CGFloat(0),
+                                    endAngle:CGFloat(Double.pi * 2),
+                                    clockwise: true)
         bodyPath.close()
         body.path = bodyPath.cgPath
         body.fillColor = .random()
+        let bodyPart = CreaturePartBody.init(shape: body)
         
         // Head
         let headPath = UIBezierPath()
-        headPath.move(to: CGPoint(x: 150, y: 150))
+        headPath.move(to: CGPoint(x: creatureContainer.frame.maxX, y: creatureContainer.frame.maxY))
         headPath.addLine(to: CGPoint(x: 250, y: 150))
         headPath.addLine(to: CGPoint(x: 250, y: 250))
         headPath.addLine(to: CGPoint(x: 150, y: 250))
         headPath.close()
-        head.path = bodyPath.cgPath
+        head.path = headPath.cgPath
         head.fillColor = .random()
+        let headPart = CreaturePartHead.init(shape: head)
         
         // LeftArm
         let leftArmPath = UIBezierPath()
@@ -76,8 +87,9 @@ class CreatureViewController: UIViewController {
         leftArmPath.addLine(to: CGPoint(x: 150, y: 150))
         leftArmPath.addLine(to: CGPoint(x: 50, y: 150))
         leftArmPath.close()
-        leftArm.path = bodyPath.cgPath
+        leftArm.path = leftArmPath.cgPath
         leftArm.fillColor = .random()
+        let leftArmPart = CreaturePartLeftArm.init(shape: leftArm)
         
         // RightArm
         let rightArmPath = UIBezierPath()
@@ -86,8 +98,9 @@ class CreatureViewController: UIViewController {
         rightArmPath.addLine(to: CGPoint(x: 210, y: 110))
         rightArmPath.addLine(to: CGPoint(x: 110, y: 210))
         rightArmPath.close()
-        rightArm.path = bodyPath.cgPath
+        rightArm.path = rightArmPath.cgPath
         rightArm.fillColor = .random()
+        let rightArmPart = CreaturePartRightArm.init(shape: rightArm)
         
         // LeftLeg
         let leftLegPath = UIBezierPath()
@@ -96,8 +109,9 @@ class CreatureViewController: UIViewController {
         leftLegPath.addLine(to: CGPoint(x: 210, y: 110))
         leftLegPath.addLine(to: CGPoint(x: 110, y: 210))
         leftLegPath.close()
-        leftLeg.path = bodyPath.cgPath
+        leftLeg.path = leftLegPath.cgPath
         leftLeg.fillColor = .random()
+        let leftLegPart = CreaturePartLeftLeg.init(shape: leftLeg)
         
         // RightLeg
         let rightLegPath = UIBezierPath()
@@ -106,10 +120,11 @@ class CreatureViewController: UIViewController {
         rightLegPath.addLine(to: CGPoint(x: 210, y: 110))
         rightLegPath.addLine(to: CGPoint(x: 110, y: 210))
         rightLegPath.close()
-        rightLeg.path = bodyPath.cgPath
+        rightLeg.path = rightLegPath.cgPath
         rightLeg.fillColor = .random()
+        let rightLegPart = CreaturePartRightLeg.init(shape: rightLeg)
         
-        baseCreature = Creature.init(body: body, head: head, leftArm: leftArm, rightArm: rightArm, leftLeg: leftLeg, rightLeg: rightLeg)
+        baseCreature = Creature.init(body: bodyPart, head: headPart, leftArm: leftArmPart, rightArm: rightArmPart, leftLeg: leftLegPart, rightLeg: rightLegPart)
         return baseCreature
     }
 

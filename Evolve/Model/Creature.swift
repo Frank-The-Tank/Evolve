@@ -11,39 +11,38 @@ import UIKit
 
 class Creature {
     
-    private var _body: CAShapeLayer!
-    private var _head: CAShapeLayer!
-    private var _leftArm: CAShapeLayer!
-    private var _rightArm: CAShapeLayer!
-    private var _leftLeg: CAShapeLayer!
-    private var _rightLeg: CAShapeLayer!
+    private var _body: CreaturePartBody!
+    private var _head: CreaturePartHead!
+    private var _leftArm: CreaturePartLeftArm!
+    private var _rightArm: CreaturePartRightArm!
+    private var _leftLeg: CreaturePartLeftLeg!
+    private var _rightLeg: CreaturePartRightLeg!
     
-    var body: CAShapeLayer {
+    var body: CreaturePartBody {
         return _body
     }
     
-    var head: CAShapeLayer {
+    var head: CreaturePartHead {
         return _head
     }
     
-    var leftArm: CAShapeLayer {
+    var leftArm: CreaturePartLeftArm {
         return _leftArm
     }
     
-    var rightArm: CAShapeLayer {
+    var rightArm: CreaturePartRightArm {
         return _rightArm
     }
     
-    var leftLeg: CAShapeLayer {
+    var leftLeg: CreaturePartLeftLeg {
         return _leftLeg
     }
     
-    var rightLeg: CAShapeLayer {
+    var rightLeg: CreaturePartRightLeg {
         return _rightLeg
     }
     
-    init(body: CAShapeLayer, head: CAShapeLayer, leftArm: CAShapeLayer, rightArm: CAShapeLayer, leftLeg: CAShapeLayer,
-         rightLeg: CAShapeLayer) {
+    init(body: CreaturePartBody, head: CreaturePartHead, leftArm: CreaturePartLeftArm, rightArm: CreaturePartRightArm, leftLeg: CreaturePartLeftLeg, rightLeg: CreaturePartRightLeg) {
         self._body = body
         self._head = head
         self._leftArm = leftArm
@@ -51,12 +50,8 @@ class Creature {
         self._leftLeg = leftLeg
         self._rightLeg = rightLeg
     }
-  
-    func consoleTest() {
-        let test: String = "test worked!"
-        print(test)
-    }
     
 }
+
 
 
